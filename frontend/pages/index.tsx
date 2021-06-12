@@ -1,3 +1,5 @@
+import { Header } from "../components/Header";
+
 export default function Home() {
   return (
     <div>
@@ -5,7 +7,13 @@ export default function Home() {
         <title>Social Site</title>
         <meta name="keywords" content="Social Site" />
       </head>
-      <h1>Hello</h1>
+      {/* Header */}
+      <Header />
+      <main>
+        {/* Sidebar */}
+        {/* Feed */}
+        {/* Widget */}
+      </main>
     </div>
   );
 }
