@@ -8,6 +8,7 @@ import {
   PlayIcon,
   ShoppingCartIcon,
   UserGroupIcon,
+  UserIcon,
   ViewGridAddIcon,
 } from "@heroicons/react/solid";
 import { signout } from "next-auth/client";
@@ -57,15 +58,17 @@ export const Header: React.FC<Iprops> = ({ username, userImg }) => {
       {/* Right side */}
       <div className="flex items-center sm:space-x-2 justify-end">
         {/* Image */}
-        {/* <Image
-          onClick={allowSignOut}
-          src={userImg}
-          width="40"
-          height="40"
-          className="rounded-full cursor-pointer"
-        >
-          Sign Out
-        </Image> */}
+        {userImg ? (
+          <Image
+            onClick={allowSignOut}
+            src={userImg}
+            width="40"
+            height="40"
+            className="rounded-full cursor-pointer"
+          ></Image>
+        ) : (
+          <HeaderIcon Icon={UserIcon} />
+        )}
         <p className="whitespace-nowrap font-semibold pr-3">{username}</p>
         <ViewGridAddIcon className="icon" />
         <ChatIcon className="icon" />

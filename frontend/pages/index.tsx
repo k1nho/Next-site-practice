@@ -16,7 +16,7 @@ export default function Home({
         <meta name="keywords" content="Social Site" />
       </head>
       {/* Header */}
-      <Header />
+      <Header username={session.user.name} userImg={session.user.image} />
       <main>
         {/* Sidebar */}
         {/* Feed */}
