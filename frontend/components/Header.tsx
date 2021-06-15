@@ -10,11 +10,21 @@ import {
   UserGroupIcon,
   ViewGridAddIcon,
 } from "@heroicons/react/solid";
+import { signout } from "next-auth/client";
 import Image from "next/image";
 import React from "react";
 import { HeaderIcon } from "./HeaderIcon";
 
-export const Header: React.FC = () => {
+interface Iprops {
+  username: string;
+  userImg?: string;
+}
+
+export const Header: React.FC<Iprops> = ({ username, userImg }) => {
+  const allowSignOut = () => {
+    signout();
+  };
+
   return (
     <div className=" flex items-center sticky top-0 z-50 bg-white p-2 lg:px-5 shadow-md">
       {/* Left side */}
@@ -46,7 +56,17 @@ export const Header: React.FC = () => {
       </div>
       {/* Right side */}
       <div className="flex items-center sm:space-x-2 justify-end">
-        <p className="whitespace-nowrap font-semibold pr-3">Kin</p>
+        {/* Image */}
+        {/* <Image
+          onClick={allowSignOut}
+          src={userImg}
+          width="40"
+          height="40"
+          className="rounded-full cursor-pointer"
+        >
+          Sign Out
+        </Image> */}
+        <p className="whitespace-nowrap font-semibold pr-3">{username}</p>
         <ViewGridAddIcon className="icon" />
         <ChatIcon className="icon" />
         <BellIcon className="icon" />
