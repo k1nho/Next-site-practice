@@ -1,7 +1,9 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { getSession } from "next-auth/client";
+import { Feed } from "../components/Feed";
 import { Header } from "../components/Header";
 import { Login } from "../components/Login";
+import { Sidebar } from "../components/Sidebar";
 
 export default function Home({
   session,
@@ -10,16 +12,18 @@ export default function Home({
     return <Login />;
   }
   return (
-    <div>
+    <div className="h-screen bg-gray-100 overflow-hidden">
       <head>
         <title>Social Site</title>
         <meta name="keywords" content="Social Site" />
       </head>
       {/* Header */}
       <Header username={session.user.name} userImg={session.user.image} />
-      <main>
+      <main className="flex">
         {/* Sidebar */}
+        <Sidebar />
         {/* Feed */}
+        <Feed userImg={session.user.image} username={session.user.name} />
         {/* Widget */}
       </main>
     </div>
