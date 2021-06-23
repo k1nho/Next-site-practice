@@ -11,7 +11,6 @@ interface Iprops {
     name: string;
     message: string;
     image: string;
-    postImage: string;
   }[];
 }
 
