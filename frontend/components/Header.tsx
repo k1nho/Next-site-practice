@@ -69,7 +69,9 @@ export const Header: React.FC<Iprops> = ({ username, userImg }) => {
         ) : (
           <HeaderIcon Icon={UserIcon} />
         )}
-        <p className="whitespace-nowrap font-semibold pr-3">{username}</p>
+        <p className="whitespace-nowrap font-semibold pr-3 hidden lg:flex">
+          {username}
+        </p>
         <ViewGridAddIcon className="icon" />
         <ChatIcon className="icon" />
         <BellIcon className="icon" />
